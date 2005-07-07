@@ -28,6 +28,7 @@ parsowanie wiadomo¶ci MIME.
 
 %package devel
 Summary:	Header files for libEtPan
+Summary(pl):	Pliki nag³ówkowe biblioteki libEtPan
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -38,7 +39,8 @@ Header files for libEtPan library.
 Pliki nag³ówkowe biblioteki libEtPan.
 
 %package static
-Summary:	Static libEtPan libraries
+Summary:	Static libEtPan library
+Summary(pl):	Statyczna biblioteka libEtPan
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
