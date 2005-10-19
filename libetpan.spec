@@ -1,12 +1,12 @@
 Summary:	Portable mail access library
 Summary(pl):	Przeno¶na biblioteka dostêpu do poczty
 Name:		libetpan
-Version:	0.37
-Release:	2
+Version:	0.39
+Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libetpan/%{name}-%{version}.tar.gz
-# Source0-md5:	82fbce08c9b3c073e9e93798c2797224
+# Source0-md5:	d737fa265944ef76dd1d0b0455c9ff97
 URL:		http://www.etpan.org
 BuildRequires:	db-devel >= 4
 BuildRequires:	openssl-devel
