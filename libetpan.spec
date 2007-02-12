@@ -1,5 +1,5 @@
 Summary:	Portable mail access library
-Summary(pl):	Przeno∂na biblioteka dostÍpu do poczty
+Summary(pl.UTF-8):   Przeno≈õna biblioteka dostƒôpu do poczty
 Name:		libetpan
 Version:	0.49
 Release:	1
@@ -21,16 +21,16 @@ low-level mail handling: network protocols (IMAP/NNTP/POP3/SMTP over
 TCP/IP and SSL/TCP/IP, already implemented), local storage
 (mbox/MH/maildir), message / MIME parser.
 
-%description -l pl
-Celem biblioteki jest udostÍpnienie przeno∂nego, efektywnego
-po∂rednika dla rÛønych metod dostÍpu do poczty. Pozwala na: obs≥ugÍ
-rÛønych protoko≥Ûw sieciowych (IMAP/NNTP/POP3/SMTP przez TCP/IP oraz
-SSL/TCP/IP), obs≥ugÍ lokalnych zasobÛw (mbox/MH/maildir) czy
-parsowanie wiadomo∂ci MIME.
+%description -l pl.UTF-8
+Celem biblioteki jest udostƒôpnienie przeno≈õnego, efektywnego
+po≈õrednika dla r√≥≈ºnych metod dostƒôpu do poczty. Pozwala na: obs≈Çugƒô
+r√≥≈ºnych protoko≈Ç√≥w sieciowych (IMAP/NNTP/POP3/SMTP przez TCP/IP oraz
+SSL/TCP/IP), obs≈Çugƒô lokalnych zasob√≥w (mbox/MH/maildir) czy
+parsowanie wiadomo≈õci MIME.
 
 %package devel
 Summary:	Header files for libEtPan
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki libEtPan
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki libEtPan
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	db-devel >= 4
@@ -39,19 +39,19 @@ Requires:	openssl-devel
 %description devel
 Header files for libEtPan library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki libEtPan.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki libEtPan.
 
 %package static
 Summary:	Static libEtPan library
-Summary(pl):	Statyczna biblioteka libEtPan
+Summary(pl.UTF-8):   Statyczna biblioteka libEtPan
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libEtPan library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka libEtPan.
 
 %prep
