@@ -1,5 +1,5 @@
 Summary:	Portable mail access library
-Summary(pl.UTF-8):   Przenośna biblioteka dostępu do poczty
+Summary(pl.UTF-8):	Przenośna biblioteka dostępu do poczty
 Name:		libetpan
 Version:	0.49
 Release:	1
@@ -30,7 +30,7 @@ parsowanie wiadomości MIME.
 
 %package devel
 Summary:	Header files for libEtPan
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki libEtPan
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libEtPan
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	db-devel >= 4
@@ -44,7 +44,7 @@ Pliki nagłówkowe biblioteki libEtPan.
 
 %package static
 Summary:	Static libEtPan library
-Summary(pl.UTF-8):   Statyczna biblioteka libEtPan
+Summary(pl.UTF-8):	Statyczna biblioteka libEtPan
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
