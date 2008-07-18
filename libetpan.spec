@@ -1,16 +1,19 @@
 Summary:	Portable mail access library
 Summary(pl.UTF-8):	Przenośna biblioteka dostępu do poczty
 Name:		libetpan
-Version:	0.49
-Release:	2
-License:	GPL
+Version:	0.54
+Release:	1
+License:	BSD
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libetpan/%{name}-%{version}.tar.gz
-# Source0-md5:	f6c973ea1aa53d947f034e093960da10
+# Source0-md5:	0214de45b1b92277fbfc6c9a00af5316
 Patch0:		%{name}-db.patch
+Patch1:		%{name}-ac.patch
 URL:		http://www.etpan.org/
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	db-devel >= 4
+BuildRequires:	libtool
 BuildRequires:	openssl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -57,9 +60,13 @@ Statyczna biblioteka libEtPan.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
 %{__autoconf}
+%{__automake}
 %configure
 %{__make}
 
@@ -77,17 +84,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog TODO NEWS
-%attr(755,root,root) %{_libdir}/*.so.*.*.*
+%doc ChangeLog NEWS
+%attr(755,root,root) %{_libdir}/libetpan.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libetpan.so.13
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/API/*.htm
 %attr(755,root,root) %{_bindir}/libetpan-config
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*
+%attr(755,root,root) %{_libdir}/libetpan.so
+%{_libdir}/libetpan.la
+%{_includedir}/libetpan
+%{_includedir}/*.h
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libetpan.a
