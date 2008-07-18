@@ -1,0 +1,11 @@
+diff -urN libetpan-0.54/configure.ac libetpan-0.54.new/configure.ac
+--- libetpan-0.54/configure.ac	2008-07-17 20:09:22.000000000 +0200
++++ libetpan-0.54.new/configure.ac	2008-07-17 20:10:33.000000000 +0200
+@@ -106,6 +106,7 @@
+ 
+ # Check the C compiler.
+ AC_PROG_CC
++AC_PROG_CXX
+ 
+ # Compiler flags.
+ AC_ARG_ENABLE(debug,   [  --enable-debug          setup flags (gcc) for debugging (default=no)],
