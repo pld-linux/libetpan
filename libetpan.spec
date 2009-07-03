@@ -1,14 +1,13 @@
 Summary:	Portable mail access library
 Summary(pl.UTF-8):	Przenośna biblioteka dostępu do poczty
 Name:		libetpan
-Version:	0.57
+Version:	0.58
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libetpan/%{name}-%{version}.tar.gz
-# Source0-md5:	8ce8c6c071e81884a475b12b7f9a9cc0
-Patch0:		%{name}-ac.patch
-URL:		http://www.etpan.org/libetpan/
+# Source0-md5:	bf20b5c0548f06b94bc588afdf5b3436
+URL:		http://sourceforge.net/projects/libetpan/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	db-devel >= 4
@@ -58,7 +57,6 @@ Statyczna biblioteka libEtPan.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
