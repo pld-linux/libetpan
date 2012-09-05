@@ -84,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog NEWS
 %attr(755,root,root) %{_libdir}/libetpan.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libetpan.so.15
+%attr(755,root,root) %ghost %{_libdir}/libetpan.so.16
 
 %files devel
 %defattr(644,root,root,755)
