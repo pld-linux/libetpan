@@ -1,0 +1,34 @@
+--- libetpan-1.1/configure.ac.orig	2012-09-22 10:40:15.782709486 +0200
++++ libetpan-1.1/configure.ac	2012-09-22 17:24:21.455537464 +0200
+@@ -577,12 +577,12 @@
+   AC_CHECK_HEADER(curl/curl.h, [libcurl=yes])
+   if test "x$libcurl" = "xyes"; then
+     AC_MSG_CHECKING([whether curl-config hints compiles and links fine])
+-    OLDFLAGS="$LDFLAGS"
+-    LDFLAGS="$LDFLAGS `$libcurlconfig --libs 2>/dev/null`"
++    OLDLIBS="$LIBS"
++    LIBS="$LIBS `$libcurlconfig --libs 2>/dev/null`"
+     AC_TRY_LINK([], [curl_easy_init();], [libcurl=yes], [libcurl=no])
+     AC_MSG_RESULT([$libcurl])
+     if test "x$libcurl" = "xno"; then
+-      LDFLAGS="$OLDFLAGS"
++      LIBS="$OLDLIBS"
+     fi
+   fi
+ 
+@@ -609,12 +609,12 @@
+ AC_CHECK_HEADER(expat.h, [libexpat=yes])
+ if test "x$libexpat" = "xyes"; then
+   AC_MSG_CHECKING([whether libexpat compiles and links fine])
+-  OLDFLAGS="$LDFLAGS"
+-  LDFLAGS="$LDFLAGS -lexpat"
++  OLDLIBS="$LIBS"
++  LIBS="$LIBS -lexpat"
+   AC_TRY_LINK([], [XML_SetElementHandler();], [libexpat=yes], [libexpat=no])
+   AC_MSG_RESULT([$libexpat])
+   if test "x$libexpat" = "xno"; then
+-    LDFLAGS="$OLDFLAGS"
++    LIBS="$OLDLIBS"
+   fi
+ fi
+ 

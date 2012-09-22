@@ -2,16 +2,21 @@ Summary:	Portable mail access library
 Summary(pl.UTF-8):	Przenośna biblioteka dostępu do poczty
 Name:		libetpan
 Version:	1.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 Source0:	http://download.sourceforge.net/libetpan/%{name}-%{version}.tar.gz
 # Source0-md5:	6fee60d08506e941642b8fa087e60b07
 Patch0:		%{name}-db.patch
+Patch1:		%{name}-link.patch
 URL:		http://sourceforge.net/projects/libetpan/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
+BuildRequires:	curl-devel
+BuildRequires:	cyrus-sasl-devel >= 2
 BuildRequires:	db-devel >= 4
+BuildRequires:	expat-devel
+BuildRequires:	liblockfile-devel
 BuildRequires:	libtool
 BuildRequires:	openssl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -27,15 +32,19 @@ TCP/IP and SSL/TCP/IP, already implemented), local storage
 Celem biblioteki jest udostępnienie przenośnego, efektywnego
 pośrednika dla różnych metod dostępu do poczty. Pozwala na: obsługę
 różnych protokołów sieciowych (IMAP/NNTP/POP3/SMTP przez TCP/IP oraz
-SSL/TCP/IP), obsługę lokalnych zasobów (mbox/MH/maildir) czy
-parsowanie wiadomości MIME.
+SSL/TCP/IP), obsługę lokalnych zasobów (mbox/MH/maildir), a także
+analizę wiadomości MIME.
 
 %package devel
 Summary:	Header files for libEtPan
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libEtPan
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	curl-devel
+Requires:	cyrus-sasl-devel >= 2
 Requires:	db-devel >= 4
+Requires:	expat-devel
+Requires:	liblockfile-devel
 Requires:	openssl-devel
 
 %description devel
@@ -59,11 +68,13 @@ Statyczna biblioteka libEtPan.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
 %{__make}
@@ -82,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog NEWS
+%doc COPYRIGHT ChangeLog NEWS
 %attr(755,root,root) %{_libdir}/libetpan.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libetpan.so.16
 
@@ -93,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libetpan.so
 %{_libdir}/libetpan.la
 %{_includedir}/libetpan
-%{_includedir}/*.h
+%{_includedir}/libetpan.h
 
 %files static
 %defattr(644,root,root,755)
