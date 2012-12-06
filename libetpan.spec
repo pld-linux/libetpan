@@ -2,7 +2,7 @@ Summary:	Portable mail access library
 Summary(pl.UTF-8):	Przenośna biblioteka dostępu do poczty
 Name:		libetpan
 Version:	1.1
-Release:	5
+Release:	6
 License:	BSD
 Group:		Libraries
 Source0:	http://download.sourceforge.net/libetpan/%{name}-%{version}.tar.gz
