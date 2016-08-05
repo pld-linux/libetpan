@@ -1,23 +1,24 @@
 Summary:	Portable mail access library
 Summary(pl.UTF-8):	Przenośna biblioteka dostępu do poczty
 Name:		libetpan
-Version:	1.1
-Release:	7
+Version:	1.7.2
+Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	http://download.sourceforge.net/libetpan/%{name}-%{version}.tar.gz
-# Source0-md5:	6fee60d08506e941642b8fa087e60b07
-Patch0:		%{name}-db.patch
-Patch1:		%{name}-link.patch
-URL:		http://sourceforge.net/projects/libetpan/
+Source0:	https://github.com/dinhviethoa/libetpan/archive/%{version}.tar.gz
+# Source0-md5:	c725728ce39b511a533d629ea78c1884
+Patch0:		%{name}-link.patch
+URL:		https://github.com/dinhviethoa/libetpan
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
 BuildRequires:	curl-devel
 BuildRequires:	cyrus-sasl-devel >= 2
 BuildRequires:	db-devel >= 4
+BuildRequires:	docbook-style-dsssl
 BuildRequires:	expat-devel
 BuildRequires:	liblockfile-devel
 BuildRequires:	libtool
+BuildRequires:	openjade
 BuildRequires:	openssl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -68,7 +69,6 @@ Statyczna biblioteka libEtPan.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -76,8 +76,13 @@ Statyczna biblioteka libEtPan.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--enable-ipv6 \
+	--with-openssl \
+	--without-gnutls
 %{__make}
+%{__make} -C doc doc \
+	DSL=%{_datadir}/sgml/docbook/dsssl-stylesheets/html/docbook.dsl
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -95,7 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc COPYRIGHT ChangeLog NEWS
 %attr(755,root,root) %{_libdir}/libetpan.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libetpan.so.16
+%attr(755,root,root) %ghost %{_libdir}/libetpan.so.20
 
 %files devel
 %defattr(644,root,root,755)
