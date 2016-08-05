@@ -8,6 +8,7 @@ Group:		Libraries
 Source0:	https://github.com/dinhviethoa/libetpan/archive/%{version}.tar.gz
 # Source0-md5:	c725728ce39b511a533d629ea78c1884
 Patch0:		%{name}-link.patch
+Patch1:		%{name}-db.patch
 URL:		https://github.com/dinhviethoa/libetpan
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
@@ -69,6 +70,7 @@ Statyczna biblioteka libEtPan.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
