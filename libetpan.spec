@@ -17,10 +17,10 @@ BuildRequires:	cyrus-sasl-devel >= 2
 BuildRequires:	db-devel >= 4
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	expat-devel
+BuildRequires:	gnutls-devel
 BuildRequires:	liblockfile-devel
 BuildRequires:	libtool
 BuildRequires:	openjade
-BuildRequires:	openssl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -80,8 +80,8 @@ Statyczna biblioteka libEtPan.
 %{__automake}
 %configure \
 	--enable-ipv6 \
-	--with-openssl \
-	--without-gnutls
+	--with-gnutls=yes \
+	--with-openssl=no
 %{__make}
 %{__make} -C doc doc \
 	DSL=%{_datadir}/sgml/docbook/dsssl-stylesheets/html/docbook.dsl
