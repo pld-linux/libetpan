@@ -1,5 +1,14 @@
 --- libetpan-1.7.2/configure.ac~	2016-05-26 07:27:47.000000000 +0200
 +++ libetpan-1.7.2/configure.ac	2016-08-05 14:44:19.882952496 +0200
+@@ -255,7 +255,7 @@
+ if test "x$with_gnutls" = "xyes"; then
+   AC_DEFINE([USE_GNUTLS],1, [Define to use GnuTLS])
+   AC_DEFINE([USE_SSL], 1, [Define to use OpenSSL])
+-  GNUTLSLIB="-lgnutls -lgcrypt -lgpg-error -lz"
++  GNUTLSLIB="-lgnutls"
+ else
+   GNUTLSLIB=""
+ fi
 @@ -618,12 +618,12 @@ else
        AC_CHECK_HEADER(curl/curl.h, [libcurl=yes])
        if test "x$libcurl" = "xyes"; then
